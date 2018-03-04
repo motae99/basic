@@ -50,7 +50,7 @@ class InvoicesController extends Controller
     public function actionNew()
     {
         $model = new Invoices();
-        $modelsItem = [new InvoiceProduct];
+        $modelsItem = [new InvoiceProduct]; 
 
         if($model->load(Yii::$app->request->post()) ){
             $client_id = $_POST['Invoices']['client_id'];

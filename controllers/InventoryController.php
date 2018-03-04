@@ -355,8 +355,9 @@ class InventoryController extends Controller
                 echo Json::encode(['output'=>$out, 'selected'=>'']);
                 return;
             }
+        }else{
+            echo Json::encode(['output'=>'', 'selected'=>'']);
         }
-        echo Json::encode(['output'=>'', 'selected'=>'']);
     }
 
     public function actionStock($id) {

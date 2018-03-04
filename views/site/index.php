@@ -120,15 +120,23 @@ use app\models\InvoiceProduct;
             <tr class="bg-orange">
               <th width="35%"><?= Yii::t('app', 'Inventory')?></th>
               <th width="35%"><?= Yii::t('app', 'Item')?></th>
-              <th width="15%"><?= Yii::t('app', 'Q')?></th>
+              <th width="10%"><?= Yii::t('app', 'Q')?></th>
               <th width="15%"><?= Yii::t('app', 'M')?></th>
+              <th width="5%"><?= Yii::t('app', 'X')?></th>
             </tr>
         <?php foreach ($minimals as $m) { ?>
             <tr>
               <td width="35%"><?= Html::a($m->stock->inventory->name , ['inventory/view', 'id' => $m->stock->inventory->id])?></td>
               <td width="35%"><?=$m->stock->product_name?></td>
-              <td width="15%"> <i class="badge bg-red"><?=Yii::$app->formatter->asDecimal($m->stock->quantity) ?></i> </td>
-              <td width="15%"> <i style="color: orange;" class="fa fa-angle-double-down"> </i>  <?=Yii::$app->formatter->asDecimal($m->quantity) ?></td>
+              <td width="10%"> <i class="badge bg-orange"><?=Yii::$app->formatter->asDecimal($m->stock->quantity) ?></i> </td>
+              <td width="15%"> <i style="color: yellow;" class="fa fa-angle-double-down"> </i>  <?=Yii::$app->formatter->asDecimal($m->quantity) ?></td>
+              <td width="5%">
+                <?= Html::a('x', ['del', 'id' => $m->id], [
+                  'class' => 'badge bg-red',
+                  
+                  ]) 
+                ?>
+              </td>
             </tr>  
         <?php } ?>
           </table>

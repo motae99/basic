@@ -12,6 +12,7 @@ use app\models\LoginForm;
 use app\models\Outstanding;
 use app\models\Dolar;
 use app\models\ContactForm;
+use app\models\Minimal;
 
 
 class SiteController extends Controller
@@ -164,6 +165,13 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionDel($id)
+    {   
+        $model = Minimal::findOne($id)->delete();
+        return $this->goHome();
+        
     }
 
     /**
